@@ -1,12 +1,33 @@
+using Photon.Pun;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviourPun
 {
-    [SerializeField] float bulletSpeed;
+    public float bulletSpeed = 5f;
+    public float lifeTime = 5f;
+
+    void Start()
+    {
+        //Destuir el projectil despues de un tiempo
+        if(photonView.IsMine)
+        {
+            Destroy(gameObject, lifeTime);
+        }
+    }
 
     void Update()
     {
-        transform.position += transform.forward * bulletSpeed * Time.deltaTime;
-        Destroy(gameObject, 3);
+        //Mover el objeto
+        transform.Translate(Vector3.forward * bulletSpeed * Time.deltaTime);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(photonView.IsMine && other.CompareTag("Player"))
+        {
+            //Aqui puedes añadir logica para dañar el jugador
+            Debug.Log("Jugador dañado");
+            PhotonNetwork.Destroy(gameObject);
+        }
     }
 }

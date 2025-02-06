@@ -368,7 +368,7 @@ MonoBehaviour:
   mainCamera: {fileID: 0}
   pSpeed: 5
   bullet: {fileID: 6548153773390594116, guid: a8d52b331be34564ba336c996e7b696c, type: 3}
-  aimPoint: {fileID: 7013597873904823297}
+  aimPoint: {fileID: 344452412084585380}
 --- !u!54 &8675769551168436596
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -549,10 +549,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7013597873904823297}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.503, y: 0, z: -0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.5, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3201133451311882945}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
