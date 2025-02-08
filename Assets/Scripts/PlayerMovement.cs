@@ -4,12 +4,12 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviourPun
 {
     public float speed = 5f;
-    public GameObject bulletPrefab;
-    public Transform firePoint;
+    private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -19,22 +19,10 @@ public class PlayerMovement : MonoBehaviourPun
         {
             //Movimiento
             float moveX = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
-            float moveY = Input.GetAxis("Vertical") * speed * Time.deltaTime;
-            transform.Translate(new Vector3(moveX, 0, moveY));
+            float moveZ = Input.GetAxis("Vertical") * speed * Time.deltaTime;
 
-            //Disparar
-            if(Input.GetButtonDown("Fire1"))
-            {
-                photonView.RPC("Shoot", RpcTarget.All);
-            }
+            Vector3 movement = new Vector3(moveX, 0, moveZ) * speed;
+            rb.velocity = movement;
         }   
-    }
-
-    [PunRPC]
-    void Shoot()
-    {
-        //Instanciar el proyectil
-        GameObject bullet = PhotonNetwork.Instantiate("Bullet", firePoint.position, firePoint.rotation);
-        bullet.GetComponent<Bullet>().photonView.TransferOwnership(photonView.Owner);
     }
 }

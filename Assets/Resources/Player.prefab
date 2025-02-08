@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8747780790853100017}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 6205374369788975934}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -227,8 +227,11 @@ GameObject:
   - component: {fileID: 3267983638960898936}
   - component: {fileID: 391721304155899186}
   - component: {fileID: 2099513729187364355}
+  - component: {fileID: -8976371685717313076}
+  - component: {fileID: 2117836485868214285}
   - component: {fileID: 8675769551168436596}
   - component: {fileID: 5182916946498814134}
+  - component: {fileID: -7275981478719573559}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -245,7 +248,7 @@ Transform:
   m_GameObject: {fileID: 2734978910067001127}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -365,10 +368,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30f0395410af2ed45aba550ed3d3f7c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
   pSpeed: 5
+--- !u!114 &-8976371685717313076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2734978910067001127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a750fd1180e5e5649a8629038445fff6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   bullet: {fileID: 6548153773390594116, guid: a8d52b331be34564ba336c996e7b696c, type: 3}
   aimPoint: {fileID: 344452412084585380}
+  bSpeed: 5
+--- !u!114 &2117836485868214285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2734978910067001127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b12eba802eb827946a421d47ffefd6bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rSpeed: 10
 --- !u!54 &8675769551168436596
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -414,10 +442,27 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: -7275981478719573559}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &-7275981478719573559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2734978910067001127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &6079875200606351907
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,7 +477,7 @@ GameObject:
   - component: {fileID: 1513612473320354767}
   m_Layer: 0
   m_Name: Capsule (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -536,7 +581,7 @@ GameObject:
   - component: {fileID: 344452412084585380}
   m_Layer: 0
   m_Name: AimPoint
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
