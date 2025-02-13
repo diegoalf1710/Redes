@@ -28,7 +28,7 @@ public class PlayerShooting : MonoBehaviourPun
     void Shoot()
     {
         GameObject bullet = PhotonNetwork.Instantiate("Bullet", aimPoint.position, aimPoint.rotation);
-        
+        bullet.GetComponent<Bullet>().photonView.TransferOwnership(photonView.Owner);
         bullet.GetComponent<Bullet>().Initialize(bSpeed, photonView.Owner);
     }
 }

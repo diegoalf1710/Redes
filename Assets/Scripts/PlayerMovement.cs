@@ -15,11 +15,6 @@ public class PlayerMovement : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
-       Move();
-    }
-
-    void Move()
-    {
         if(photonView.IsMine)
         {
             //Movimiento

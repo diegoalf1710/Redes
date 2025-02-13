@@ -1,18 +1,16 @@
 using Photon.Pun;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 public class Bullet : MonoBehaviourPun
 {
     public float speed = 5f;
     public float lifeTime = 5f;
-
     private Photon.Realtime.Player owner;
 
-    public void Initialize (float bulletSpeed, Photon.Realtime.Player bulletOwner)
+    public void Initialize(float bulletSpeed, Photon.Realtime.Player bulletOwner)
     {
         speed = bulletSpeed;
-        
+        owner = bulletOwner;
     }
 
     void Start()
@@ -32,7 +30,7 @@ public class Bullet : MonoBehaviourPun
 
     void OnTriggerEnter(Collider other)
     {
-        if(photonView.IsMine && other.CompareTag("Player"))
+        if(photonView.IsMine && !other.CompareTag("Player"))
         {
             //Aqui puedes añadir logica para dañar el jugador
             Debug.Log("Jugador dañado");
